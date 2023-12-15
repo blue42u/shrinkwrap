@@ -28,7 +28,7 @@ def shrinkwrap(file: str, output: Optional[str], link_strategy: str):
         exit(1)
 
     binary: lief.Binary = lief.parse(file)
-    if not binary.has_interpreter:
+    if link_strategy == "native" and not binary.has_interpreter:
         click.echo("no interpreter set on the binary")
         exit(1)
 
