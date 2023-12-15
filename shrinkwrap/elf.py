@@ -50,7 +50,6 @@ class NativeLinkStrategy(LinkStrategy):
 
 
 class VirtualLinkStrategy(LinkStrategy):
-
     # TODO: Need to figure out a good way to determine the NEEDED of glibc
     # I think it's resolving based on a shared object cache from the .INTERP
     # section but that remains to be validated.
@@ -124,7 +123,6 @@ class VirtualLinkStrategy(LinkStrategy):
             machine_type = current.header.machine_type
 
             for soname in needed:
-
                 if soname in VirtualLinkStrategy.SKIP:
                     continue
 
